@@ -36,7 +36,7 @@ import numpy as np
 from utils.data_loader import load_movie_titles
 from recommenders.collaborative_based import collab_model
 from recommenders.content_based import content_model
-
+import recommenders.collaborative_based as collab
 # Data Loading
 title_list = load_movie_titles('resources/data/movies.csv')
 
@@ -45,7 +45,7 @@ def main():
 
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
-    page_options = ["Recommender System","Solution Overview"]
+    page_options = ["Recommender System","Solution Overview","About Team 2","Contact Us"]
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -63,9 +63,13 @@ def main():
 
         # User-based preferences
         st.write('### Enter Your Three Favorite Movies')
-        movie_1 = st.selectbox('Fisrt Option',title_list[14930:15200])
-        movie_2 = st.selectbox('Second Option',title_list[25055:25255])
-        movie_3 = st.selectbox('Third Option',title_list[21100:21200])
+        movie_1 = st.selectbox('Fisrt Option',title_list[1:300])
+        movie_2 = st.selectbox('Second Option',title_list[550:555])
+        movie_3 = st.selectbox('Third Option',title_list[311:540])
+
+        # movie_1 = st.selectbox('Fisrt Option',title_list[14930:15200])
+        # movie_2 = st.selectbox('Second Option',title_list[25055:25255])
+        # movie_3 = st.selectbox('Third Option',title_list[21100:21200])
         fav_movies = [movie_1,movie_2,movie_3]
 
         # Perform top-10 movie recommendation generation
@@ -104,6 +108,26 @@ def main():
         st.title("Solution Overview")
         st.write("Describe your winning approach on this page")
 
+    #Building out the Contact Page
+    if page_selection == "Contact Us":
+        st.info("Let us get in touch for all your ML needs")
+        firstname = st.text_input("Enter your Name", "Type Here Please...")
+        lastname = st.text_input("Enter your Last Name", "Type Here Please..")
+        contactdetails = st.text_input("Enter your contact details here", "Type Here Please...")
+        message = st.text_area("Tell us about your company's Data Science needs", "Type here Please..")
+  
+        if st.button("Submit"):
+            result = message.title()
+            st.success(result)
+
+    if page_selection == "About Team 2":
+        st.subheader("TEAM 2 is a group of five Data Scientists from EDSA")
+        st.subheader("Kolawole Aina")
+        st.image('resources/imgs/samuel.PNG')
+        st.subheader(" ")
+        st.subheader("Visit our Contact Page and let us get in touch!")
+  
+   
     # You may want to add more sections here for aspects such as an EDA,
     # or to provide your business pitch.
 
