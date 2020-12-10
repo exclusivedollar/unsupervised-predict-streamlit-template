@@ -25,17 +25,16 @@
 	https://docs.streamlit.io/en/latest/
 
 """
+import numpy as np
+# Data handling dependencies
+import pandas as pd
 # Streamlit dependencies
 import streamlit as st
 
-# Data handling dependencies
-import pandas as pd
-import numpy as np
-
-# Custom Libraries
-from utils.data_loader import load_movie_titles
 from recommenders.collaborative_based import collab_model
 from recommenders.content_based import content_model
+# Custom Libraries
+from utils.data_loader import load_movie_titles
 
 # Data Loading
 title_list = load_movie_titles('resources/data/movies.csv')
@@ -45,7 +44,7 @@ def main():
 
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
-    page_options = ["Recommender System","Solution Overview"]
+    page_options = ["Recommender System","Solution Overview", "Interactive Movie Recommender"]
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -98,11 +97,65 @@ def main():
 
 
     # -------------------------------------------------------------------
-
     # ------------- SAFE FOR ALTERING/EXTENSION -------------------
     if page_selection == "Solution Overview":
         st.title("Solution Overview")
-        st.write("Describe your winning approach on this page")
+        st.write("Add eda")
+
+
+    if page_selection == "Interactive Movie Recommender":
+
+        # Setting up background image:
+        st.image('resources/imgs/background.jpg', width=800)
+
+
+        st.title("Interactive Movie Recommender")
+        st.markdown('## Insert subheader')
+        st.write("Insert additional text if applicable")
+
+
+        with st.beta_container():
+            # Load movies.csv dataframe:
+            movies_df = pd.read_csv('resources/data/movies.csv', index_col='movieId')
+
+            # Year selection
+            start_year = st.slider("Start Year", 1874, 2019)
+            end_year = st.slider('End Year', start_year, 2019)
+            movies_df = movies_df[(movies_df['year']>=start_year) & (movies_df['year']<=end_year)]
+
+            # Genre selection
+            genres_list = ['Documentary', 'Animation','Film-Noir','Romance','Adventure',
+            'Western','Children','Sci-Fi','Drama','Thriller',
+            'Mystery','War','Comedy','Action','IMAX','Musical','Fantasy','Horror','Crime']
+            genres = list(st.multiselect('Select genres', genres_list))
+            
+            drop_rows = []
+            for index, row in movies_df.iterrows():
+                if set(genres).issubset(set(row['genres'].split())):
+                    pass
+                else:
+                    drop_rows.append(index)
+            
+            movies_df = movies_df.drop(drop_rows)
+
+
+
+
+            st.dataframe(movies_df)
+
+        with st.beta_container():
+            st.components.v1.html(
+                """
+                <form action="http://www.youtube.com/results" method="get" target="_blank" >
+                <input name="search_query" type="text" maxlength="128" />
+                <select name="search_type">
+                <option value="">Videos</option>
+                <option value="search_users">Channels</option>
+                </select>
+                <input type="submit" value="Search" />
+                </form>
+                """
+            )
 
     # You may want to add more sections here for aspects such as an EDA,
     # or to provide your business pitch.
