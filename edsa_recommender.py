@@ -178,12 +178,12 @@ def main():
 
     if page_selection == "About Team 2":
         st.subheader("TEAM 2 is a group of five Data Scientists from EDSA")
-        st.subheader("Kolawole Aina")
+        st.subheader("Samuel Aina")
         st.image('resources/imgs/samuel.PNG')
         st.subheader(" ")
         st.subheader("Visit our Contact Page and let us get in touch!")
-  
-   
+
+
     # You may want to add more sections here for aspects such as an EDA,
     # or to provide your business pitch.
 
