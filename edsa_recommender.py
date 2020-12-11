@@ -43,12 +43,27 @@ def main():
 
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
-    page_options = ["Recommender System","Solution Overview","Interactive Movie Recommender","About Team 2","Contact Us"]
+    page_options = ["Home","Recommender System","Interactive Movie Recommender","Data Analysis and Insights","About Team 2","Contact Us"]
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
     # -------------------------------------------------------------------
     page_selection = st.sidebar.selectbox("Choose Option", page_options)
+
+    if page_selection == "Home":
+        st.image('resources/imgs/Explore_header.jpg', width=600)
+        st.header('Project name')
+        st.subheader('Subheader')
+
+
+    if page_selection == "About Team 2":
+        st.subheader("TEAM 2 is a group of five Data Scientists from EDSA")
+        st.subheader("Samuel Aina")
+        st.image('resources/imgs/samuel.PNG')
+        st.subheader(" ")
+        st.subheader("Visit our Contact Page and let us get in touch!")
+
+
     if page_selection == "Recommender System":
         # Header contents
         st.write('# Movie Recommender Engine')
