@@ -111,18 +111,18 @@ def main():
         # Setting up background image:
         st.image('resources/imgs/background.jpg', width=800)
 
-        st.info('Still need to make this all look nice and maybe add some more functionality')
-
+        # Page title & intro
         st.title("Interactive Movie Recommender")
-        st.markdown('## Insert subheader')
-        st.write("Filter movies below then search your top pics on youtube through the search bar below")
+        st.subheader("Don't trust the system! Find your own movies here.")
+        st.info("Below is a more interactive movie recommender. Set your release date (year) preference with the two year sliders and select any combination of your preferred genres. On the table that displays your recommendations, click on the 'year' column title to sort the recommendations by release year. Copy and paste the title of any films that catch your eye into the search bar below the table to search youtube for it's trailer")
 
+        # Container for year/genre filtered DF
         with st.beta_container():
             # Load movies.csv dataframe:
             movies_df = pd.read_csv('resources/data/movies.csv', index_col='movieId')
 
             # Year selection
-            st.subheader('Enter your preferred year-range')
+            st.subheader('Enter your preferred release-year range')
             start_year = st.slider("Start Year", 1874, 2019)
             end_year = st.slider('End Year', start_year, 2019)
             movies_df = movies_df[(movies_df['year']>=start_year) & (movies_df['year']<=end_year)]
@@ -133,7 +133,6 @@ def main():
             'Western','Children','Sci-Fi','Drama','Thriller',
             'Mystery','War','Comedy','Action','IMAX','Musical','Fantasy','Horror','Crime']
             genres = list(st.multiselect('Select genres', genres_list))
-            
             drop_rows = []
             for index, row in movies_df.iterrows():
                 if set(genres).issubset(set(row['genres'].split())):
@@ -145,12 +144,13 @@ def main():
 
 
 
-
+            # Display filtered DF
             st.dataframe(movies_df)
 
         with st.beta_container():
+            st.image('resources/imgs/Youtube_logo.png', width=300)
             st.subheader('Search YouTube')
-            st.text('Descriptive text')
+            st.info('Copy and paste movie titles that catch your fancy below to search youtube!')
             st.components.v1.html(
                 """
                 <form action="http://www.youtube.com/results" method="get" target="_blank" >
