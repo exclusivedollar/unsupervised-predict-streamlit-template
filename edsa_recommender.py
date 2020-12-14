@@ -51,7 +51,7 @@ def main():
     page_selection = st.sidebar.selectbox("Choose Option", page_options)
 
     if page_selection == "Home":
-        st.image('resources/imgs/Home.png', width=1000)
+        st.image('resources/imgs/Home.png', width=900)
 
 
     if page_selection == "Recommender System":
