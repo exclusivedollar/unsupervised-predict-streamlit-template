@@ -222,6 +222,12 @@ def main():
             st.subheader("Mokgadi Maake")
             st.text('mj.maakekai@gmail.com')
 
+            st.subheader("Sammy Maakwana")
+            st.text('maakwana@gmail.com')
+
+            st.subheader("Sandile Mkhabela")
+            st.text('saintsandile01@gmail.com')
+
 
         st.info("Get in touch with us for all your ML needs")
         firstname = st.text_input("Enter your Name")
