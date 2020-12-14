@@ -56,14 +56,6 @@ def main():
         st.subheader('Subheader')
 
 
-    if page_selection == "About Team 2":
-        st.subheader("TEAM 2 is a group of five Data Scientists from EDSA")
-        st.subheader("Samuel Aina")
-        st.image('resources/imgs/samuel.PNG')
-        st.subheader(" ")
-        st.subheader("Visit our Contact Page and let us get in touch!")
-
-
     if page_selection == "Recommender System":
         # Header contents
         st.write('# Movie Recommender Engine')
@@ -149,7 +141,7 @@ def main():
         st.image('resources/imgs/wordcloud_genre.png', width=700)
 
         # Ratings by Day of Week
-        st.markdown("The following graph shows the trends in day-of-week rating of movies in this dataset. Sundays and Saturdays are understandably most prominent, though the step-wise decrease from Sunday to Friday indicated that the overall rating trend here might simply be an artefact of the manner in which the dataset was constructed (everybody knows Tursdays and Fridays are prime movie nights :wink:)")
+        st.markdown("The following graph shows the trends in day-of-week rating of movies in this dataset. Sundays and Saturdays are understandably most prominent, though the step-wise decrease from Sunday to Friday indicated that the overall rating trend here might simply be an artefact of the manner in which the dataset was constructed (everybody knows Thursdays and Fridays are prime movie nights :wink:).")
         st.image('resources/imgs/ratings_DOW.png', width=700)
 
         # Movie duration distribution
@@ -237,8 +229,8 @@ def main():
             st.subheader("Samuel Aina")
             st.text('About Samuel')
 
-            st.subheader("JC")
-            st.text('About Jacques Carstens')
+            st.subheader("Jacques Carstens")
+            st.text('carstensjacques3@gmail.com')
 
             st.subheader("Mokg")
             st.text('About')
