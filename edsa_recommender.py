@@ -43,7 +43,7 @@ def main():
 
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
-    page_options = ["Home","Recommender System","Interactive Movie Recommender","Data Analysis & Insights","About Team 2","Contact Us"]
+    page_options = ["Home","Recommender System","Interactive Movie Recommender","Data Analysis & Insights","Contact Us"]
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -51,9 +51,7 @@ def main():
     page_selection = st.sidebar.selectbox("Choose Option", page_options)
 
     if page_selection == "Home":
-        st.image('resources/imgs/Explore_header.jpeg', width=1000)
-        st.header('Project name')
-        st.subheader('Subheader')
+        st.image('resources/imgs/Home.png', width=1000)
 
 
     if page_selection == "Recommender System":
@@ -211,6 +209,20 @@ def main():
 
     #Building out the Contact Page
     if page_selection == "Contact Us":
+
+        st.subheader("We are Team 2, a group of five young data scientists from the Explore Data Science Academy, Johannesburg.")
+
+        with st.beta_container():
+            st.subheader("Samuel Aina")
+            st.text('sammykola@yahoo.com')
+
+            st.subheader("Jacques Carstens")
+            st.text('carstensjacques3@gmail.com')
+
+            st.subheader("Mokgadi Maake")
+            st.text('mj.maakekai@gmail.com')
+
+
         st.info("Get in touch with us for all your ML needs")
         firstname = st.text_input("Enter your Name")
         lastname = st.text_input("Enter your Last Name")
@@ -220,34 +232,6 @@ def main():
         if st.button("Submit"):
             result = message.title()
             st.success("Thank you, we'll be in touch!")
-
-    if page_selection == "About Team 2":
-
-        st.subheader("TEAM 2 is a group of five Data Scientists from EDSA")
-
-        with st.beta_container():
-            st.subheader("Samuel Aina")
-            st.text('About Samuel')
-
-            st.subheader("Jacques Carstens")
-            st.text('carstensjacques3@gmail.com')
-
-            st.subheader("Mokg")
-            st.text('About')
-
-            st.subheader("S")
-            st.text('About')
-
-            st.subheader("S")
-            st.text('About')
-
-
-        st.subheader(" ")
-        st.subheader("Visit our Contact Page and let us get in touch!")
-
-
-    # You may want to add more sections here for aspects such as an EDA,
-    # or to provide your business pitch.
 
 
 if __name__ == '__main__':
