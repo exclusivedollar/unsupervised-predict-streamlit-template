@@ -116,9 +116,18 @@ def main():
 
     # -------------------------------------------------------------------
     # ------------- SAFE FOR ALTERING/EXTENSION -------------------
-    if page_selection == "Solution Overview":
+    if page_selection == "Data Analysis and Insights":
+
+        from bokeh.io import show, output_notebook
+        from bokeh.plotting import figure   
+
         st.title("Solution Overview")
         st.write("Add eda")
+
+        st.image('resources/imgs/ratings_dist.png', width=900)
+        st.image('resources/imgs/ratings_scatter.png')
+        st.image('resources/imgs/movies_per_year.png', width=1000)
+
 
 
     if page_selection == "Interactive Movie Recommender":
