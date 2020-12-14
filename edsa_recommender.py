@@ -190,20 +190,37 @@ def main():
 
     #Building out the Contact Page
     if page_selection == "Contact Us":
-        st.info("Let us get in touch for all your ML needs")
-        firstname = st.text_input("Enter your Name", "Type Here Please...")
-        lastname = st.text_input("Enter your Last Name", "Type Here Please..")
-        contactdetails = st.text_input("Enter your contact details here", "Type Here Please...")
-        message = st.text_area("Tell us about your company's Data Science needs", "Type here Please..")
+        st.info("Get in touch with us for all your ML needs")
+        firstname = st.text_input("Enter your Name")
+        lastname = st.text_input("Enter your Last Name")
+        contactdetails = st.text_input("Enter your contact details here")
+        message = st.text_area("Tell us about your company's Data Science needs")
   
         if st.button("Submit"):
             result = message.title()
-            st.success(result)
+            st.success("Thank you, we'll be in touch!")
 
     if page_selection == "About Team 2":
+
         st.subheader("TEAM 2 is a group of five Data Scientists from EDSA")
-        st.subheader("Samuel Aina")
-        st.image('resources/imgs/samuel.PNG')
+
+        with st.beta_container():
+            st.subheader("Samuel Aina")
+            st.text('About Samuel')
+
+            st.subheader("JC")
+            st.text('About Jacques Carstens')
+
+            st.subheader("Mokg")
+            st.text('About')
+
+            st.subheader("S")
+            st.text('About')
+
+            st.subheader("S")
+            st.text('About')
+
+
         st.subheader(" ")
         st.subheader("Visit our Contact Page and let us get in touch!")
 
