@@ -66,10 +66,13 @@ def main():
 
         # User-based preferences
         st.write('### Enter Your Three Favorite Movies')
- 
-        movie_1 = st.selectbox('Fisrt Option',title_list[14930:15200])
-        movie_2 = st.selectbox('Second Option',title_list[25055:25255])
-        movie_3 = st.selectbox('Third Option',title_list[21100:21200])
+        movie_1 = st.selectbox('Fisrt Option',title_list[1:300])
+        movie_2 = st.selectbox('Second Option',title_list[550:555])
+        movie_3 = st.selectbox('Third Option',title_list[311:540])
+
+        # movie_1 = st.selectbox('Fisrt Option',title_list[14930:15200])
+        # movie_2 = st.selectbox('Second Option',title_list[25055:25255])
+        # movie_3 = st.selectbox('Third Option',title_list[21100:21200])
         fav_movies = [movie_1,movie_2,movie_3]
 
         # Perform top-10 movie recommendation generation
@@ -79,7 +82,7 @@ def main():
                     with st.spinner('Crunching the numbers...'):
                         top_recommendations = content_model(movie_list=fav_movies,
                                                             top_n=10)
-                        st.title("We think you'll like:")
+                    st.title("We think you'll like:")
                     for i,j in enumerate(top_recommendations):
                         st.subheader(str(i+1)+'. '+j)
                 except:
@@ -91,10 +94,8 @@ def main():
             if st.button("Recommend"):
                 try:
                     with st.spinner('Crunching the numbers...'):
-                        st.write('1st')
                         top_recommendations = collab_model(movie_list=fav_movies,
                                                            top_n=10)
-                        st.write('here')
                     st.title("We think you'll like:")
                     for i,j in enumerate(top_recommendations):
                         st.subheader(str(i+1)+'. '+j)
@@ -220,12 +221,6 @@ def main():
 
             st.subheader("Mokgadi Maake")
             st.text('mj.maakekai@gmail.com')
-
-            st.subheader("Sandile Mkhabela")
-            st.text('saintsandile01@gmail.com')
-		
-	    st.subheader("Sammy Maakwana")
-            st.text('maakwana@gmail.com')
 
 
         st.info("Get in touch with us for all your ML needs")
