@@ -43,7 +43,7 @@ def main():
 
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
-    page_options = ["Home","Recommender System","Interactive Movie Recommender","Data Analysis and Insights","About Team 2","Contact Us"]
+    page_options = ["Home","Recommender System","Interactive Movie Recommender","Data Analysis & Insights","About Team 2","Contact Us"]
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -51,7 +51,7 @@ def main():
     page_selection = st.sidebar.selectbox("Choose Option", page_options)
 
     if page_selection == "Home":
-        st.image('resources/imgs/Explore_header.jpg', width=600)
+        st.image('resources/imgs/Explore_header.jpeg', width=1000)
         st.header('Project name')
         st.subheader('Subheader')
 
@@ -116,18 +116,47 @@ def main():
 
     # -------------------------------------------------------------------
     # ------------- SAFE FOR ALTERING/EXTENSION -------------------
-    if page_selection == "Data Analysis and Insights":
+    if page_selection == "Data Analysis & Insights":
 
         from bokeh.io import show, output_notebook
         from bokeh.plotting import figure   
 
-        st.title("Solution Overview")
-        st.write("Add eda")
+        st.title("Data Analysis & Insights")
+        st.subheader('Understanding the data')
+        st.write("Below we explore the data through visualisation to better understand the industry it represents and how it has changed over the years")
 
+        st.warning('This dataset contains over 48 000 unique movies with release dates all the way from 1874, around the time when motion pictures were first invented, to 2019 when Avengers: Infinity War part II rocked the big screen')
+        
+        # Rating distribution
+        st.write('Although ratings were only created/collected from 1995 to 2019, almost every movie in the dataset has numerous user ratings. The graph below illustrated the trend of high average ratings in general with an overall average rating of 3.5')
         st.image('resources/imgs/ratings_dist.png', width=900)
+
+        # Number of ratings vs ratings scatterplot - more ratings = higher average rating (trend)
+        st.write('The plot below illustrates a key trend in the film industry: The more people that view a movie the higher probability it has of having a high average rating. This observation is a key driving point behind marketing strategies in the film industry worldwide')
         st.image('resources/imgs/ratings_scatter.png')
+
+        # Lineplot of movies release from 1874 - 2019
+        st.write('The following line graph visualises the trend in number of movies released per year since the first motion pictures were released around 1874. It is important to note that this dataset does not contain every movie ever released (and heavily favours US-released movies), meaning that even though the trend it exposes exists one cannot read off values for any specific year(s) accurately.')
+        st.write("The dataset also doesn't contain many movies after 2016, which should not be be interpreted as a reduction in releases around that time.")
         st.image('resources/imgs/movies_per_year.png', width=1000)
 
+        # Wordcloud of most prominent release years
+        st.write('This word-cloud depicts the years with singularly the most recorded releases in this datset.')
+        st.image('resources/imgs/wordcloud_year.png', width=700)
+
+        # Genre wordcloud
+        st.write("This wordcloud similarly depicts the most prominent genres represented in this datset. Comedy, Drama, Romance, and Sci-Fi dominate with Action, Thriller, Crime, and Drama following closely.")
+        st.image('resources/imgs/wordcloud_genre.png', width=700)
+
+        # Ratings by Day of Week
+        st.markdown("The following graph shows the trends in day-of-week rating of movies in this dataset. Sundays and Saturdays are understandably most prominent, though the step-wise decrease from Sunday to Friday indicated that the overall rating trend here might simply be an artefact of the manner in which the dataset was constructed (everybody knows Tursdays and Fridays are prime movie nights :wink:)")
+        st.image('resources/imgs/ratings_DOW.png', width=700)
+
+        # Movie duration distribution
+        st.write("The violin-plot below visualises the distribution in movie duration in the dataset, clearly showing that, with few outliers, movie durations is on average around 100 minutes.")
+        st.image('resources/imgs/movie_duration.png', width=600)
+
+        st.subheader("That wraps up our dive into the dataset! For more in-dept analytics get in touch with us though the 'Contact Us' page.")
 
 
     if page_selection == "Interactive Movie Recommender":
