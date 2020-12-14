@@ -131,19 +131,19 @@ def main():
         st.image('resources/imgs/movies_per_year.png', width=1000)
 
         # Wordcloud of most prominent release years
-        st.write('This word-cloud depicts the years with singularly the most recorded releases in this datset.')
+        st.write('This word-cloud depicts the years with singularly the most recorded releases in this dataset.')
         st.image('resources/imgs/wordcloud_year.png', width=700)
 
         # Genre wordcloud
-        st.write("This wordcloud similarly depicts the most prominent genres represented in this datset. Comedy, Drama, Romance, and Sci-Fi dominate with Action, Thriller, Crime, and Drama following closely.")
+        st.write("This wordcloud similarly depicts the most prominent genres represented in this dataset. Comedy, Drama, Romance, and Sci-Fi dominate with Action, Thriller, Crime, and Drama following closely.")
         st.image('resources/imgs/wordcloud_genre.png', width=700)
 
         # Ratings by Day of Week
-        st.markdown("The following graph shows the trends in day-of-week rating of movies in this dataset. Sundays and Saturdays are understandably most prominent, though the step-wise decrease from Sunday to Friday indicated that the overall rating trend here might simply be an artefact of the manner in which the dataset was constructed (everybody knows Thursdays and Fridays are prime movie nights :wink:).")
+        st.markdown("The following graph shows the trends in day-of-week rating of movies in this dataset. Sundays and Saturdays are understandably most prominent, though the step-wise decrease from Sunday to Friday indicates that the overall rating trend here might simply be an artefact of the manner in which the dataset was constructed (everybody knows Thursdays and Fridays are prime movie nights :wink:).")
         st.image('resources/imgs/ratings_DOW.png', width=700)
 
         # Movie duration distribution
-        st.write("The violin-plot below visualises the distribution in movie duration in the dataset, clearly showing that, with few outliers, movie durations is on average around 100 minutes.")
+        st.write("The violin-plot below visualises the distribution in movie duration in the dataset, clearly showing that, with few outliers, movie duration is on average around 100 minutes.")
         st.image('resources/imgs/movie_duration.png', width=600)
 
         st.subheader("That wraps up our dive into the dataset! For more in-dept analytics get in touch with us though the 'Contact Us' page.")
@@ -157,7 +157,7 @@ def main():
         # Page title & intro
         st.title("Interactive Movie Recommender")
         st.subheader("Don't trust the system! Find your own movies here.")
-        st.info("Below is a more interactive movie recommender. Set your release date (year) preference with the two year sliders and select any combination of your preferred genres. On the table that displays your recommendations, click on the 'year' column title to sort the recommendations by release year. Copy and paste the title of any films that catch your eye into the search bar below the table to search youtube for it's trailer")
+        st.info("Below is a more interactive movie recommender. Set your release date (year) preference with the two year sliders and select any combination of your preferred genres. On the table that displays your recommendations, click on the 'year' column title to sort the recommendations by release year. Copy and paste the title of any films that catch your eye into the search bar below the table to search youtube for its trailer")
 
         # Container for year/genre filtered DF
         with st.beta_container():
