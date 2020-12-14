@@ -210,7 +210,7 @@ def main():
     #Building out the Contact Page
     if page_selection == "Contact Us":
 
-        st.subheader("We are Team 2, a group of five young data scientists from the Explore Data Science Academy, Johannesburg.")
+        st.subheader("We are Team 2, a group of young data scientists from the Explore Data Science Academy, Johannesburg.")
 
         with st.beta_container():
             st.subheader("Samuel Aina")
