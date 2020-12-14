@@ -221,6 +221,9 @@ def main():
 
             st.subheader("Sandile Mkhabela")
             st.text('saintsandile01@gmail.com')
+		
+	    st.subheader("Sammy Maakwana")
+            st.text('maakwana@gmail.com')
 
 
         st.info("Get in touch with us for all your ML needs")
